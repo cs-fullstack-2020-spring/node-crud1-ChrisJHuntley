@@ -3,7 +3,7 @@ let router = express.Router();
 router.use(express.json());
 let entryCollection = require('../models/EntrySchema')
 router.get('/', (req, res) => {
-    res.send('all students')
+    // res.send('all students')
     entryCollection.create({},(errors, results)=>{
         errors ? res.send(errors): res.send(results);
     })
@@ -47,8 +47,8 @@ router.put('/:StudentName', (req, res) => {
 
 })
 // __________________________________________________________________
-router.get('/', (req, res) => {
-    res.send('Created new')
+router.get('/teachers', (req, res) => {
+    res.send('all teachers')
     entryCollection.create({},(errors, results)=>{
         errors ? res.send(errors): res.send(results);
     })
