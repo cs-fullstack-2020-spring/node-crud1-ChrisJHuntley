@@ -65,7 +65,7 @@ router.get('/:teacher_id', (req, res) => {
 
 }
 )
-router.post('/', (req, res) => {
+router.post('/teacher', (req, res) => {
     // res.send('post method worked')
     entryCollection.create(req.body, (errors,results)=>{
         errors ? res.send(errors): res.send(results);
@@ -75,7 +75,7 @@ router.post('/', (req, res) => {
 
 
 })
-router.delete('/', (req, res) => {
+router.delete('/teacher', (req, res) => {
     entryCollection.findOneAndDelete({TeacherName: req.params.TeacherName}, (errors, results)=>{
         errors ? res.send(errors): res.send(`teacher deleted`);
     });
