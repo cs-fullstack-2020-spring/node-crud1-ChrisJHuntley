@@ -1,6 +1,6 @@
 # Node.js - CRUD backend web service
 
-### You should have two schemas and check out my comments in your api.js file
+### You should have two schemas and check out my comments in your api.js file. Also you did not include your test cases.
 ### Score : 2/5
 
 Create a backend web service for managing Students and Teachers and maintain them in MongoDB
