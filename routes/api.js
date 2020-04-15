@@ -2,6 +2,7 @@ let express = require('express');
 let router = express.Router();
 router.use(express.json());
 let entryCollection = require('../models/EntrySchema')
+// get should use find method
 router.get('/', (req, res) => {
     // res.send('all students')
     entryCollection.create({},(errors, results)=>{
@@ -29,6 +30,7 @@ router.post('/', (req, res) => {
 
 
 })
+// delete must have query param
 router.delete('/', (req, res) => {
     entryCollection.findOneAndDelete({StudentName : req.params.StudentName }, (errors, results)=>{
         errors ? res.send(errors): res.send(`deleted student`);
@@ -47,6 +49,7 @@ router.put('/:StudentName', (req, res) => {
 
 })
 // __________________________________________________________________
+// get should use find method
 router.get('/teachers', (req, res) => {
     res.send('all teachers')
     entryCollection.create({},(errors, results)=>{
@@ -54,6 +57,7 @@ router.get('/teachers', (req, res) => {
     })
 
 })
+// query param must match req.params.name
 router.get('/:teacher_id', (req, res) => {
     entryCollection.findOne({TeacherName:req.params.TeacherName},(errors, results)=>{
         errors ? res.send(errors): res.send(results);
@@ -75,6 +79,7 @@ router.post('/teacher', (req, res) => {
 
 
 })
+// query param must match req.params.name
 router.delete('/teacher', (req, res) => {
     entryCollection.findOneAndDelete({TeacherName: req.params.TeacherName}, (errors, results)=>{
         errors ? res.send(errors): res.send(`teacher deleted`);
